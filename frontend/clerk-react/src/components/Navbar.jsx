@@ -62,8 +62,8 @@ export default function Navbar() {
               <Link to="/" className="hover:text-red-600 transition-colors">
                 Home
               </Link>
-              <Link to="/parts" className="hover:text-red-600 transition-colors">
-                Parts
+              <Link to="/Privacy-policy" className="hover:text-red-600 transition-colors">
+                Privacy policy
               </Link>
               <Link to="/about" className="hover:text-red-600 transition-colors">
                 About Us
@@ -76,18 +76,18 @@ export default function Navbar() {
             {/* Auth Buttons */}
             <div className="hidden md:flex items-center space-x-4">
               <SignedOut>
-                <button
+                {/* <button
                   onClick={handleSignIn}
                   className="px-4 py-2 hover:text-red-600 transition-colors font-medium"
                 >
                   Login
-                </button>
-                <button
+                </button> */}
+                {/* <button
                   onClick={handleSignUp}
                   className="px-6 py-2 bg-red-600 hover:bg-red-700 rounded-md transition-colors font-medium"
                 >
                   Register
-                </button>
+                </button> */}
               </SignedOut>
               <SignedIn>
                 <UserButton afterSignOutUrl="/" />

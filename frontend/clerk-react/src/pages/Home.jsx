@@ -1,6 +1,11 @@
 import React from "react";
 import "./Home.css";
 import bannerImage from "../assets/images/banner-img.webp";
+import sectionImage from "../assets/images/group-104.svg";
+import img1 from "../assets/images/group-193.svg";
+import img2 from "../assets/images/low-milage.svg";
+import img3 from "../assets/images/national-wide.svg";
+import img4 from "../assets/images/win.svg";
 import part1 from "../assets/images/Anti Brake Module-Pump.webp";
 import part2 from "../assets/images/Radio controller- Display.webp";
 import part3 from "../assets/images/Display.webp";
@@ -87,22 +92,22 @@ const Home = () => {
 
     <div className="why-boxes">
       <div className="why-box">
-        <img src={part1} alt="Support" />
+        <img src={img1} alt="Support" />
         <span>Free expert support</span>
       </div>
 
       <div className="why-box">
-        <img src={part2} alt="Mileage" />
+        <img src={img2} alt="Mileage" />
         <span>Low mileage parts</span>
       </div>
 
       <div className="why-box">
-        <img src={part3} alt="Shipping" />
+        <img src={img3} alt="Shipping" />
         <span>Nationwide shipping</span>
       </div>
 
       <div className="why-box">
-        <img src={part4} alt="VIN" />
+        <img src={img4} alt="VIN" />
         <span>VIN-matched parts</span>
       </div>
     </div>
@@ -158,7 +163,7 @@ const Home = () => {
         <span className="icon">💬</span>
         <h3>Get a Quote</h3>
       </div>
-      <p>Search our extensive inventory by entering your vehicle details and part requirements.</p>
+      <p>Recive a compatative quote with compatative information about the part condition and warranty.</p>
     </div>
 
     <div className="feature-card">
@@ -166,7 +171,7 @@ const Home = () => {
         <span className="icon">🚚</span>
         <h3>Fast Shipping</h3>
       </div>
-      <p>Search our extensive inventory by entering your vehicle details and part requirements.</p>
+      <p>We ship your part quickly with nationwide delivery and tracking information.</p>
     </div>
 
     <div className="feature-card">
@@ -174,7 +179,7 @@ const Home = () => {
         <span className="icon">🛡️</span>
         <h3>Warranty Support</h3>
       </div>
-      <p>Search our extensive inventory by entering your vehicle details and part requirements.</p>
+      <p>Enjoy peace of mind with standers warranty and resposnsive customer service.</p>
     </div>
   </div>
 </section>
@@ -183,7 +188,7 @@ const Home = () => {
 {/* What Our Customers Says */}
 <section className="customer-reviews">
   <h2>What Our <span> Customers Says</span></h2>
-
+<p>Don't just take out word for it - hear from our satisfied customer</p>
   <div className="reviews-slider">
     <div className="reviews-track">
       {[
@@ -264,12 +269,12 @@ const Home = () => {
 </p>
 
 
-      <button className="cta-btn">Start Your Search</button>
+      <button className="cta-btn">Get  quote now</button>
     </div>
 
     {/* Right Image */}
     <div className="cta-right">
-      <img src={bannerImage} alt="Auto Parts" />
+      <img src={sectionImage} alt="Auto Parts" />
     </div>
 
   </div>

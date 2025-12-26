@@ -20,10 +20,7 @@ const Contact = () => {
   </h2>
 
   <p>
-    We're proud to serve customers nationwide with top-quality
-    second-hand car parts, trusted by thousands of mechanics and
-    vehicle owners. Contact us for genuine OEM replacements at
-    affordable prices.
+    We’re proud to serve customers nationwide with top-quality second-hand car parts, trusted by thousands of mechanics and vehicle owners. Contact us for genuine OEM replacements at affordable prices.
   </p>
 
   <div className="contact-box">
@@ -88,8 +85,7 @@ const Contact = () => {
             <div className="checkbox">
               <input type="checkbox" />
               <label>
-                By checking this box, you agree to receive customer care,
-                account notifications and delivery notification SMS messages.
+               By checking this box, you agree to receive customer care, account notifications and delivery notification SMS messages from NEXXA AUTO PARTS related to Appointment reminders, Follow-up messages, Account Updates and Delivery notifications. You may reply STOP to opt-out at any time. Reply HELP to (463) 223-5914 for assistance. Messages and data rates may apply. Message frequency will vary. Learn more on our privacy policy page and Term & Conditions .
               </label>
             </div>
 
