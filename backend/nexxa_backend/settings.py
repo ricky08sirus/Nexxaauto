@@ -153,7 +153,7 @@ REST_FRAMEWORK = {
 # CLERK_PUBLISHABLE_KEY = os.getenv("CLERK_PUBLISHABLE_KEY", "")
 
 # Email Configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.gmail.com")
 EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))
 EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", "True") == "True"
@@ -162,9 +162,7 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
 
 # Contact form recipient(s)
-CONTACT_EMAIL_RECIPIENTS = [
-    os.getenv("CONTACT_EMAIL_RECIPIENTS")
-]
+CONTACT_EMAIL_RECIPIENTS = [os.getenv("CONTACT_EMAIL_RECIPIENTS")]
 # Logging Configuration
 LOGGING = {
     "version": 1,
@@ -197,3 +195,4 @@ LOGGING = {
         },
     },
 }
+

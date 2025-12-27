@@ -1,0 +1,89 @@
+version: "3.9"
+
+services:
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: nexxa_db
+      MYSQL_USER: nexxa_user
+      MYSQL_PASSWORD: "6394"
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - nexxa-network
+
+  # Backend (Django)
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: django_backend
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             python manage.py populate_sample_data &&
+             gunicorn nexxa_backend.wsgi:application --bind 0.0.0.0:8000 --workers 3 --reload"
+    volumes:
+      - ./backend:/app
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+    env_file:
+      - ./backend/.env
+    depends_on:
+      db:
+        condition: service_healthy
+    expose:
+      - "8000"
+    networks:
+      - nexxa-network
+
+  # Frontend (React)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_URL: http://localhost/api
+    container_name: react_frontend
+    depends_on:
+      - backend
+    expose:
+      - "80"
+    networks:
+      - nexxa-network
+
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - nexxa-network
+
+volumes:
+  mysql_data:
+  static_volume:
+  media_volume:
+
+networks:
+  nexxa-network:
+    driver: bridge
