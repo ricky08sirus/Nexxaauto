@@ -1,142 +1,3 @@
-// import { useState } from "react";
-// import { SignedIn, SignedOut, useClerk, UserButton } from "@clerk/clerk-react";
-// import { Menu, X } from "lucide-react";
-// import { Link } from "react-router-dom";
-// import logoImage from "../assets/images/logoimg-removebg-preview.png";
-// import "./Navbar.css";
-
-// export default function Navbar() {
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-
-//   const handleSignIn = () => {
-//     clerk.openSignIn();
-//   };
-
-//   const handleSignUp = () => {
-//     clerk.openSignUp();
-//   };
-
-//   const closeMenu = () => setIsMenuOpen(false);
-
-//   return (
-//     <div className="min-screen bg-gray-50">
-//       {/* Navbar */}
-//       <nav className="bg-black text-white relative z-50">
-//         <div className="max-w-full mx-auto px-8">
-//           <div className="flex items-center justify-between h-16">
-//             {/* Logo */}
-//             <Link to="/" className="flex items-center gap-2">
-//               <img src={logoImage} alt="Nexxa Logo" className="h-10 w-auto" />
-//             </Link>
-
-//             {/* Auth (kept untouched & commented) */}
-//             <div className="hidden md:flex items-center space-x-4">
-//               <SignedOut>
-//                 {
-//                   /*
-//                 <button onClick={handleSignIn}>Login</button>
-//                 <button onClick={handleSignUp}>Register</button>
-//                 */
-//                 }
-//               </SignedOut>
-//               <SignedIn>
-//                 <UserButton afterSignOutUrl="/" />
-//               </SignedIn>
-//             </div>
-
-//             {/* Hamburger Icon (Desktop + Mobile) */}
-//             <button
-//               onClick={() => setIsMenuOpen(true)}
-//               className="hover:text-red-600"
-//             >
-//               <Menu size={26} />
-//             </button>
-//           </div>
-//         </div>
-
-//         {/* Overlay Menu */}
-//         {isMenuOpen && (
-//           <div className="fixed inset-0 bg-black/[0.01] backdrop-blur-sm z-50">
-//             <div className="absolute right-0 top-0 h-full w-64 bg-black border-l border-gray-800 p-6">
-//               {/* Close Button */}
-//               <div className="flex justify-end mb-6">
-//                 <button
-//                   onClick={closeMenu}
-//                   className="hover:text-red-600"
-//                 >
-//                   <X size={24} />
-//                 </button>
-//               </div>
-
-//               {/* Menu Links */}
-//               <nav className="flex flex-col space-y-4 text-lg">
-//                 <Link to="/" onClick={closeMenu} className="hover:text-red-600">
-//                   Home
-//                 </Link>
-//                 <Link
-//                   to="/about"
-//                   onClick={closeMenu}
-//                   className="hover:text-red-600"
-//                 >
-//                   About Us
-//                 </Link>
-//                 <Link
-//                   to="/contact-us"
-//                   onClick={closeMenu}
-//                   className="hover:text-red-600"
-//                 >
-//                   Contact
-//                 </Link>
-//                 <Link
-//                   to="/Privacy-policy"
-//                   onClick={closeMenu}
-//                   className="hover:text-red-600"
-//                 >
-//                   Privacy Policy
-//                 </Link>
-//                 <Link to="/warranty">Warranty & Return Policy</Link>
-//                 <Link to="/terms-and-conditions">Terms & Conditions</Link>
-//               </nav>
-//             </div>
-//           </div>
-//         )}
-//       </nav>
-
-//       {/* Secondary Nav with continuous scroll inside rectangle */}
-//       <div className="scroll-container">
-//         <div className="scrolling-text">
-//           {[
-//             "Used Kia Parts",
-//             "Used Porsche Parts",
-//             "Used BMW Parts",
-//             "Used Mercedes Parts",
-//           ].map((item, index) => (
-//             <span key={index} className="scroll-item">
-//               {item}
-//             </span>
-//           ))}
-//           {/* Repeat items to make seamless loop */}
-//           {[
-//             "Used Kia Parts",
-//             "Used Porsche Parts",
-//             "Used BMW Parts",
-//             "Used Mercedes Parts",
-//           ].map((item, index) => (
-//             <span key={"r" + index} className="scroll-item">
-//               {item}
-//             </span>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-
-
-
-
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -148,79 +9,131 @@ export default function Navbar() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
+  const scrollItems = [
+    { label: "Used Acura Parts", path: "/acura-parts" },
+    { label: "Used BMW Parts", path: "/bmw-parts" },
+    { label: "Used Buick Parts", path: "/buick-parts" },
+    { label: "Used Cadillac Parts", path: "/cadillac-parts" },
+    { label: "Used Chevy Parts", path: "/chevy-parts" },
+    { label: "Used Chrysler Parts", path: "/chrysler-parts" },
+    { label: "Used Daewoo Parts", path: "/daewoo-parts" },
+    { label: "Used Daihatsu Parts", path: "/daihatsu-parts" },
+    { label: "Used Dodge Parts", path: "/dodge-parts" },
+    { label: "Used Eagle Parts", path: "/eagle-parts" },
+    { label: "Used Ford Parts", path: "/ford-parts" },
+    { label: "Used GMC Parts", path: "/gmc-parts" },
+    { label: "Used Honda Parts", path: "/honda-parts" },
+    { label: "Used Hyundai Parts", path: "/hyundai-parts" },
+    { label: "Used Infiniti Parts", path: "/infiniti-parts" },
+    { label: "Used Isuzu Parts", path: "/isuzu-parts" },
+    { label: "Used Jaguar Parts", path: "/jaguar-parts" },
+    { label: "Used Kia Parts", path: "/kia-parts" },
+    { label: "Used Landrover Parts", path: "/landrover-parts" },
+    { label: "Used Lexus Parts", path: "/lexus-parts" },
+    { label: "Used Lincoln Parts", path: "/lincoln-parts" },
+    { label: "Used Mazda Parts", path: "/mazda-parts" },
+    { label: "Used Mercedes Parts", path: "/mercedes-parts" },
+    { label: "Used Mercury Parts", path: "/mercury-parts" },
+    { label: "Used Mini Cooper Parts", path: "/mini-cooper-parts" },
+    { label: "Used Mitsubishi Parts", path: "/mitsubishi-parts" },
+    { label: "Used Nissan Parts", path: "/nissan-parts" },
+    { label: "Used Oldsmobile Parts", path: "/oldsmobile-parts" },
+    { label: "Used Plymouth Parts", path: "/plymouth-parts" },
+    { label: "Used Pontiac Parts", path: "/pontiac-parts" },
+    { label: "Used Porsche Parts", path: "/porsche-parts" },
+    { label: "Used Saab Parts", path: "/saab-parts" },
+    { label: "Used Saturn Parts", path: "/saturn-parts" },
+    { label: "Used Scion Parts", path: "/scion-parts" },
+    { label: "Used Subaru Parts", path: "/subaru-parts" },
+    { label: "Used Suzuki Parts", path: "/suzuki-parts" },
+    { label: "Used Toyota Parts", path: "/toyota-parts" },
+    { label: "Used Volvo Parts", path: "/volvo-parts" },
+    { label: "Used Volkswagen Parts", path: "/volkswagen-parts" }
+  ];
+
   return (
-    <div className="min-screen bg-gray-50">
-      {/* Navbar */}
+    <div className="bg-gray-50">
+      {/* ================= NAVBAR ================= */}
       <nav className="bg-black text-white relative z-50">
-        <div className="max-w-full mx-auto px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
-              <img src={logoImage} alt="Nexxa Logo" className="h-10 w-auto" />
+        <div className="max-w-full mx-auto px-4">
+          <div className="flex items-center h-16 gap-2">
+
+            {/* LOGO */}
+            <Link to="/" className="flex items-center shrink-0">
+              <img
+                src={logoImage}
+                alt="Nexxa Logo"
+                className="h-9 w-auto"
+              />
             </Link>
 
-            {/* Auth Buttons (You can later connect your own login logic here) */}
-            
+            <div className="scroll-container flex-1 mx-2 min-w-0">
+  <div className="scrolling-text">
+    {scrollItems.map((item, index) => (
+      <Link
+        to={item.path}
+        key={index}
+        className="scroll-item"
+      >
+        {item.label}
+      </Link>
+    ))}
 
-            {/* Hamburger Icon (Desktop + Mobile) */}
+    {/* duplicate for seamless loop */}
+    {scrollItems.map((item, index) => (
+      <Link
+        to={item.path}
+        key={`dup-${index}`}
+        className="scroll-item"
+      >
+        {item.label}
+      </Link>
+    ))}
+  </div>
+</div>
+
+            {/* HAMBURGER */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="hover:text-red-600"
+              className="hover:text-red-600 shrink-0"
+              aria-label="Open menu"
             >
-              <Menu size={26} />
+              <Menu size={24} />
             </button>
           </div>
         </div>
 
-        {/* Overlay Menu */}
+        {/* ================= MOBILE MENU ================= */}
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-black/[0.01] backdrop-blur-sm z-50">
-            <div className="absolute right-0 top-0 h-full w-64 bg-black border-l border-gray-800 p-6">
-              {/* Close Button */}
+          <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50">
+            <div className="absolute right-0 top-0 h-full w-72 bg-black border-l border-gray-800 p-6">
               <div className="flex justify-end mb-6">
-                <button onClick={closeMenu} className="hover:text-red-600">
+                <button
+                  onClick={closeMenu}
+                  className="hover:text-red-600"
+                  aria-label="Close menu"
+                >
                   <X size={24} />
                 </button>
               </div>
 
-              {/* Menu Links */}
               <nav className="flex flex-col space-y-4 text-lg">
                 <Link to="/" onClick={closeMenu} className="hover:text-red-600">
                   Home
                 </Link>
-                <Link
-                  to="/about"
-                  onClick={closeMenu}
-                  className="hover:text-red-600"
-                >
+                <Link to="/about" onClick={closeMenu} className="hover:text-red-600">
                   About Us
                 </Link>
-                <Link
-                  to="/contact-us"
-                  onClick={closeMenu}
-                  className="hover:text-red-600"
-                >
+                <Link to="/contact-us" onClick={closeMenu} className="hover:text-red-600">
                   Contact
                 </Link>
-                <Link
-                  to="/Privacy-policy"
-                  onClick={closeMenu}
-                  className="hover:text-red-600"
-                >
+                <Link to="/privacy-policy" onClick={closeMenu} className="hover:text-red-600">
                   Privacy Policy
                 </Link>
-                <Link
-                  to="/warranty"
-                  onClick={closeMenu}
-                  className="hover:text-red-600"
-                >
+                <Link to="/warranty" onClick={closeMenu} className="hover:text-red-600">
                   Warranty & Return Policy
                 </Link>
-                <Link
-                  to="/terms-and-conditions"
-                  onClick={closeMenu}
-                  className="hover:text-red-600"
-                >
+                <Link to="/terms-and-conditions" onClick={closeMenu} className="hover:text-red-600">
                   Terms & Conditions
                 </Link>
               </nav>
@@ -228,37 +141,6 @@ export default function Navbar() {
           </div>
         )}
       </nav>
-
-      {/* Secondary Nav with continuous scroll inside rectangle */}
-      <div className="scroll-container">
-        <div className="scrolling-text">
-          {[
-            "Used Kia Parts",
-            "Used Porsche Parts",
-            "Used BMW Parts",
-            "Used Mercedes Parts",
-          ].map((item, index) => (
-            <span key={index} className="scroll-item">
-              {item}
-            </span>
-          ))}
-          {/* Repeat items to make seamless loop */}
-          {[
-            "Used Kia Parts",
-            "Used Porsche Parts",
-            "Used BMW Parts",
-            "Used Mercedes Parts",
-          ].map((item, index) => (
-            <span key={"r" + index} className="scroll-item">
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
-
-
-
-

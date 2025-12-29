@@ -5,7 +5,9 @@
 body {
   overflow-x: hidden;
 }
-
+html, body {
+  overflow-x: hidden;
+}
 .home-container {
   font-family: Arial, sans-serif;
 }
