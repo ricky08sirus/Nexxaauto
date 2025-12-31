@@ -1,30 +1,33 @@
-# requirements.txt - Python Dependencies for Nexxa Backend
-
 # Django Core
-Django==5.0
+Django==4.2.11
 djangorestframework==3.14.0
 
 # Database
-mysqlclient==2.2.0
+mysqlclient==2.2.4
 
-# CORS Headers
+# CORS & Security
 django-cors-headers==4.3.1
 
-# JWT Authentication
-PyJWT==2.8.0
-cryptography==41.0.7
-
-# HTTP Requests
-requests==2.31.0
+# Filtering & Search
+django-filter==23.5
 
 # Environment Variables
-python-dotenv==1.0.0
+python-dotenv==1.0.1
 
-# Optional but recommended for production
+# Image Processing
+Pillow==10.2.0
+
+# NEW: Cloudflare R2 / AWS S3 Storage
+django-storages==1.14.2
+boto3==1.34.28
+botocore==1.34.28
+
+# NEW: Additional useful packages
+pytz==2024.1
+
+# Production Server (Optional - if using Gunicorn)
 gunicorn==21.2.0
-whitenoise==6.6.0
-django-environ==0.11.2
 
-# Development tools (optional)
-ipython==8.18.0
-django-debug-toolbar==4.2.0
+# Utility packages
+python-dateutil==2.8.2
+six==1.16.0
