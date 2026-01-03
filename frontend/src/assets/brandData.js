@@ -161,7 +161,7 @@ const brandData = {
   {
     id: 4,
     title: "Cadillac",
-    image: cadillac.webp,
+    image: cadillac,
     description: "We have taken the time to inventory all wrecked and salvaged Cadillac vehicles to make sure you have instant access to any used Cadillac parts you are searching for online. We have junkyards in locations all over the United States, that can quickly serve you today. You simply need to complete the used auto parts request form, so we can quickly quote you the best price guaranteed. nexxaauto.com is your one stop shop when it comes to any of your used auto part needs, and we can't wait to have the opportunity to help you today. Cadillac was formally known as Cadillac Motor Car Division, is a brand under General Motor Company. It is one of the oldest auto brands in the world. 1902 was when the first Cadillac rolled off the assembly line. It was named after Antoine de la Mothe Cadillac, who founded Detroit, MI. Cadillac was also, the first American car to ever win the Royal Automobile Club of England's Dewar Trophy by successfully demonstrating the interchangeability of its component parts during a reliability test in 1908.Cadillac vehicles are expensive in general, and sometimes it can be hard locating parts for any Cadillac vehicles, but every single Cadillac vehicle we have in our inventory has been inspected and checked. Any bad or nonfunctional parts have been removed from the system.",
     models: [
       { name: "XTS", path: "/models/cadillac-xts" },
@@ -188,7 +188,7 @@ const brandData = {
 5:
   {
     id: 5,
-    title: "Chevy",
+    title: "Chevrolet",
     image: chevrolet,
     description: "We have taken the time to inventory all wrecked and salvaged Chevy vehicles to make sure you have instant access to any used Chevy parts you are searching for online. We have junkyards in locations all over the United States, that can quickly serve you today. You simply need to complete the used auto parts request form, so we can quickly quote you the best price guaranteed. nexxaauto.com is your one stop shop when it comes to any of your used auto part needs, and we can't wait to have the opportunity to help you today. Chevrolet or 'Chevy' is another division of General Motors. Founded by Louis Chevrolet and William C Durant who started the company November 3, 1911 as the Chevrolet Motor Car Company. One of the most common vehicle makes in the United States, never tremble or fear when needing to locate a part for this manufacturer. Every salvage yard in the United States has at least 30% of their inventory made by GM, who interchanges parts with Chevrolet. This company has been through many up's and down's through out the years, but has stayed a major foundation of American workmanship. Beautiful Chevrolet vehicles are still being produced today and we will do our part to insure any used Chevy parts you need, we have in stock.",
     models: [

@@ -25,28 +25,32 @@ export default function BrandDetail() {
         <h1 className="brand-title">
           Find Quality Used <span className="brand-title-highlight">{brand.title.toUpperCase()}</span> Parts
         </h1>
-        
-        {/* BRAND LOGO */}
-        <div className="brand-logo-container">
-          <img
-            src={brand.image}
-            alt={`${brand.title} logo`}
-            className="brand-logo"
-          />
-        </div>
       </div>
 
       {/* MAIN CONTENT CONTAINER */}
       <div className="brand-content">
+        {/* TWO COLUMN LAYOUT: LEFT (LOGO + DESCRIPTION) | RIGHT (FORM) */}
         <div className="brand-grid">
-          {/* LEFT COLUMN - DESCRIPTION */}
-          <div className="brand-description-section">
-            <h2 className="brand-description-title">
-              Used {brand.title} Parts
-            </h2>
-            <p className="brand-description-text">
-              {brand.description}
-            </p>
+          {/* LEFT COLUMN - LOGO AND DESCRIPTION */}
+          <div className="brand-left-section">
+            {/* BRAND LOGO */}
+            <div className="brand-logo-container">
+              <img
+                src={brand.image}
+                alt={`${brand.title} logo`}
+                className="brand-logo"
+              />
+            </div>
+
+            {/* DESCRIPTION */}
+            <div className="brand-description-section">
+              <h2 className="brand-description-title">
+                Used {brand.title} Parts
+              </h2>
+              <p className="brand-description-text">
+                {brand.description}
+              </p>
+            </div>
           </div>
 
           {/* RIGHT COLUMN - SEARCH FORM */}

@@ -4,18 +4,24 @@ import "./Home.css";
 
 // Import Images
 import bannerImage from "../assets/images/banner-img.webp";
-import part1 from "../assets/images/Anti Brake Module-Pump.webp";
+
+import part1 from "../assets/images/WhatsApp Image 2026-01-03 at 10.40.38 AM.jpeg";
 import part2 from "../assets/images/Radio controller- Display.webp";
 import part3 from "../assets/images/Display.webp";
-import part4 from "../assets/images/Mechanical Parts.webp";
-import part5 from "../assets/images/Body Parts.webp";
-import part6 from "../assets/images/transmission.webp";
-import part7 from "../assets/images/Engine Computers.webp";
-// import part8 from "../assets/images/Engine.webp";
-import part9 from "../assets/images/Engines.webp";
-import part10 from "../assets/images/Rims.webp";
+import part4 from "../assets/images/Speedometer - Instr. Cluster.jpeg";
+import part5 from "../assets/images/Steering Column.jpeg";
+import part6 from "../assets/images/Mechanical Parts.webp";
+import part7 from "../assets/images/Body Parts.webp";
+import part8 from "../assets/images/Engine Computers.webp";
+import part9 from "../assets/images/Engine.webp";
+import part10 from "../assets/images/transmission.webp";
+import part11 from "../assets/images/Transfer Case.jpeg";
+import part12 from "../assets/images/Axle Assembly.jpeg";
+import part13 from "../assets/images/Drive Shaft.jpeg";
+import part14 from "../assets/images/Rims.webp";
 
 // Brand Images
+
 
 import brand1 from "../assets/images/brands/accura.webp";
 import brand2 from "../assets/images/brands/american moters.webp";
@@ -81,15 +87,19 @@ console.log("API Base URL:", API_BASE_URL);
 // Parts images array with names
 const partsImages = [
   { img: part1, name: "Anti Brake Module Pump" },
-  { img: part2, name: "Radio Controller Display" },
+  { img: part2, name: "Radio Controller" },
   { img: part3, name: "Display Unit" },
-  { img: part4, name: "Mechanical Parts" },
-  { img: part5, name: "Body Parts" },
-  { img: part6, name: "Transmission" },
-  { img: part7, name: "Engine Computers" },
-  // { img: part8, name: "Engine" },
-  { img: part9, name: "Engines" },
-  { img: part10, name: "Rims" },
+  { img: part4, name: "Speedometer - Instr.Cluster" },
+  { img: part5, name: "Steering Column" },
+  { img: part6, name: "Mechanical Parts" },
+  { img: part7, name: "Body Parts" },
+  { img: part8, name: "Engine Computers" },
+  { img: part9, name: "Engine" },
+  { img: part10, name: "Transmission" },
+  { img: part11, name: "Transfercase" },
+  { img: part12, name: "Axel Assembly" },
+  { img: part13, name: "Drive Shaft" },
+  { img: part14, name: "Rims" },
 ];
 
 
@@ -445,63 +455,32 @@ const Home = () => {
     Exact OEM parts matched to your vehicle using precise VIN verification.
   </p>
 </div>
-
-
-
 </section>
-
-
-      {/* Why Nexxa Auto Parts Section */}
-      {/* <section className="why-nexxa">
-  <div className="why-nexxa-container">
-    <h2 className="why-title">Why Nexxa Auto Parts</h2>
-    <div className="why-boxes">
-      <div className="why-box">
-        <img src={headset} alt="Free expert support" />
-        <span>Free expert support</span>
-      </div>
-      <div className="why-box">
-        <img src={lowMileage} alt="Low mileage parts" />
-        <span>Low mileage parts</span>
-      </div>
-      <div className="why-box">
-        <img src={delivery} alt="Nationwide shipping" />
-        <span>Nationwide shipping</span>
-      </div>
-      <div className="why-box">
-        <img src={radiator} alt="VIN-matched parts" />
-        <span>VIN-matched parts</span>
-      </div>
-    </div>
-  </div>
-</section> */}
-
 
 
       {/* Explore Our Premium Used Auto Parts */}
       <section className="explore-parts">
-        <h2>
-          Explore Our <span className="highlight">Premium</span> Used Auto Parts
-        </h2>
-        <p className="section-description">Explore OEM used auto parts—engines, transmissions, modules, rims, and body components for major brands.</p>
-        <div className="scroll-wrapper">
-          <button className="scroll-btn left" onClick={() => scroll("left")}>
-            <ChevronLeft />
-          </button>
-          <div className="cards-container" ref={scrollRef}>
-            {partsImages.map((part, idx) => (
-              <div className="part-card" key={idx}>
-                <img src={part.img} alt={part.name} />
-                <p className="part-name">{part.name}</p>
-                </div>
-              ))}
+  <h2>
+    Explore Our <span className="highlight">Premium</span> Used Auto Parts
+  </h2>
 
+  <p className="section-description">
+    Explore OEM used auto parts—engines, transmissions, modules, rims, and body components for major brands.
+  </p>
+
+  <div className="scroll-wrapper">
+    <div className="cards-container">
+      <div className="cards-track">
+        {[...partsImages, ...partsImages].map((part, idx) => (
+          <div className="part-card" key={idx}>
+            <img src={part.img} alt={part.name} />
+            <p className="part-name">{part.name}</p>
           </div>
-          <button className="scroll-btn right" onClick={() => scroll("right")}>
-            <ChevronRight />
-          </button>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* How It Works Section */}
       <section className="how-it-works">
