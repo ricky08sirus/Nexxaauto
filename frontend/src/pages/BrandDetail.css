@@ -13,30 +13,22 @@
   padding: 48px 16px;
 }
 
+/* Header Section */
+.brand-header {
+  text-align: center;
+  padding: 48px 16px 24px;
+}
+
 .brand-title {
   font-size: 2.25rem;
   font-weight: bold;
   color: #111827;
-  margin-bottom: 24px;
+  margin-bottom: 0;
   line-height: 1.2;
 }
 
 .brand-title-highlight {
   color: #dc2626;
-}
-
-/* Brand Logo */
-.brand-logo-container {
-  display: flex;
-  width: 68%;
-  /* justify-content: center; */
-  /* margin-bottom: 32px; */
-}
-
-.brand-logo {
-  height: 128px;
-  width: auto;
-  object-fit: contain;
 }
 
 /* Main Content Container */
@@ -50,11 +42,37 @@
 .brand-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 32px;
+  gap: 40px;
   align-items: start;
+  margin-bottom: 48px;
 }
 
-/* Left Column - Description */
+/* Left Section - Logo and Description */
+.brand-left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Brand Logo */
+.brand-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* background-color: #f9fafb; */
+  border-radius: 12px;
+  /* border: 2px solid #e5e7eb; */
+}
+
+.brand-logo {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+/* Description */
 .brand-description-section {
   padding: 0;
 }
@@ -76,11 +94,14 @@
 /* Right Column - Search Form */
 .brand-search-section {
   padding: 0;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
 }
 
 /* Models Section */
 .brand-models-section {
-  margin-top: 64px;
+  margin-top: 32px;
 }
 
 .brand-models-title {
@@ -107,6 +128,8 @@
   border: 2px solid #dc2626;
   text-decoration: none;
   display: block;
+  cursor: pointer;
+  width: 100%;
 }
 
 .brand-model-link:hover {
@@ -121,43 +144,19 @@
   color: #ffffff;
 }
 
-/* Not Found Page */
-.brand-not-found {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  padding: 16px;
-}
-
-.brand-not-found-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 16px;
-}
-
-.brand-not-found-link {
-  color: #dc2626;
-  font-size: 1.125rem;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.brand-not-found-link:hover {
-  color: #b91c1c;
-}
-
 /* Tablet Screens */
 @media (min-width: 768px) {
   .brand-title {
     font-size: 3rem;
   }
 
+  .brand-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
   .brand-logo {
-    height: 160px;
+    height: 140px;
   }
 
   .brand-description-title {
@@ -179,29 +178,25 @@
   .brand-model-title {
     font-size: 1.25rem;
   }
-
-  .brand-not-found-title {
-    font-size: 1.875rem;
-  }
 }
 
 /* Desktop Screens */
 @media (min-width: 1024px) {
   .brand-detail-container {
-    padding-top: 100px; /* More space for larger screens */
+    padding-top: 100px;
   }
 
   .brand-title {
     font-size: 2.75rem;
   }
 
-  .brand-logo {
-    height: 192px;
+  .brand-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 64px;
   }
 
-  .brand-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+  .brand-logo {
+    height: 160px;
   }
 
   .brand-models-grid {
@@ -215,72 +210,74 @@
     padding-left: 32px;
     padding-right: 32px;
   }
+
+  .brand-logo {
+    height: 180px;
+  }
 }
 
 /* Mobile Screens - Small Devices (up to 480px) */
 @media (max-width: 480px) {
   .brand-detail-container {
-    padding-top: 60px; /* Reduced padding for small screens */
+    padding-top: 60px;
   }
 
   .brand-header {
-    padding: 24px 12px; /* Reduced padding */
+    padding: 24px 12px 16px;
   }
 
   .brand-title {
-    font-size: 20px; /* Smaller title for mobile */
-    margin-bottom: 16px;
+    font-size: 20px;
+    margin-bottom: 0;
     padding: 0 8px;
   }
 
+  .brand-grid {
+    gap: 24px;
+  }
+
+  .brand-left-section {
+    gap: 20px;
+  }
+
   .brand-logo-container {
-    width: 100%; 
-    margin: auto;
-    justify-content: center;
+    padding: 12px;
   }
 
   .brand-logo {
-    height: 80px; /* Smaller logo */
-    max-width: 90%;
-  }
-
-  .brand-content {
-    padding: 0 12px 32px; /* Reduced padding */
-  }
-
-  .brand-grid {
-    gap: 24px; /* Reduced gap */
+    height: 80px;
   }
 
   .brand-description-title {
-    font-size: 18px; /* Smaller title */
+    font-size: 18px;
     margin-bottom: 12px;
   }
 
   .brand-description-text {
-    font-size: 14px; /* Smaller text */
+    font-size: 14px;
     line-height: 1.6;
+    text-align: left;
   }
 
   .brand-models-section {
-    margin-top: 40px; /* Reduced margin */
+    margin-top: 32px;
   }
 
   .brand-models-title {
-    font-size: 20px; /* Smaller title */
+    font-size: 20px;
     margin-bottom: 20px;
   }
 
   .brand-models-grid {
-    gap: 16px; /* Reduced gap */
+    gap: 16px;
   }
 
   .brand-model-link {
-    padding: 12px 20px; /* Reduced padding */
+    padding: 12px 20px;
   }
 
   .brand-model-title {
-    font-size: 14px; /* Smaller text */
+    font-size: 14px;
   }
 }
 
@@ -291,29 +288,27 @@
   }
 
   .brand-header {
-    padding: 32px 16px;
+    padding: 32px 16px 20px;
   }
 
   .brand-title {
     font-size: 24px;
-    margin-bottom: 20px;
-  }
-
-  .brand-logo-container {
-    width: 80%;
-    margin: 0 auto 24px;
-  }
-
-  .brand-logo {
-    height: 100px;
-  }
-
-  .brand-content {
-    padding: 0 16px 40px;
   }
 
   .brand-grid {
     gap: 28px;
+  }
+
+  .brand-left-section {
+    gap: 24px;
+  }
+
+  .brand-logo-container {
+    padding: 16px;
+  }
+
+  .brand-logo {
+    height: 100px;
   }
 
   .brand-description-title {
@@ -326,7 +321,7 @@
   }
 
   .brand-models-section {
-    margin-top: 48px;
+    margin-top: 40px;
   }
 
   .brand-models-title {
@@ -336,7 +331,6 @@
 
   .brand-models-grid {
     gap: 18px;
-    grid-template-columns: 1fr; /* Single column */
   }
 
   .brand-model-link {
@@ -355,7 +349,7 @@
   }
 
   .brand-header {
-    padding: 20px 16px;
+    padding: 20px 16px 16px;
   }
 
   .brand-logo {
@@ -373,16 +367,10 @@
     margin-top: 8px;
   }
 
-  /* Make sure buttons are easily tappable */
   .brand-model-link {
-    min-height: 48px; /* Minimum touch target size */
+    min-height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  /* Improve text readability on small screens */
-  .brand-description-text {
-    text-align: left; /* Left align on mobile for better readability */
   }
 }
