@@ -242,22 +242,24 @@ CORS_ALLOW_HEADERS = [
 # ============================================================================
 # EMAIL CONFIGURATION
 # ============================================================================
+# Email Configuration
 EMAIL_BACKEND = os.getenv(
-    "EMAIL_BACKEND", "django.core.mail.backends.console.EmailBackend"
+    "EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend"
 )
 EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.gmail.com")
 EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))
 EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", "True") == "True"
+EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL", "False") == "True"  # Add this
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
-DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "noreply@nexxaautoparts.com")
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "Nexxa Auto <info@nexxaauto.com>")
+EMAIL_TIMEOUT = int(os.getenv("EMAIL_TIMEOUT", 10))  # Add this
 
-# Contact form recipient(s)
-CONTACT_EMAIL_RECIPIENTS = [
-    os.getenv("CONTACT_EMAIL_RECIPIENTS", "company@nexxaautoparts.com")
-]
-
-# ============================================================================
+# Contact form recipient(s) - handle comma-separated values
+CONTACT_EMAIL_RECIPIENTS = os.getenv(
+    "CONTACT_EMAIL_RECIPIENTS", 
+    "info@nexxaauto.com"
+).split(',')# ============================================================================
 # LOGGING CONFIGURATION
 # ============================================================================
 LOGGING = {
