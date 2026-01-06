@@ -1,39 +1,52 @@
-# # authentication/urls.py
-# from django.urls import path
-# from . import views
-
-# app_name = "authentication"
-
-# urlpatterns = [
-#     path("contact/", views.submit_contact_form, name="submit_contact"),
-#     path("contact/test-email/", views.test_email, name="test_email"),
-#     path("health/", views.health_check, name="health_check"),
-# ]
-
-
-
-
 # authentication/urls.py
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import PartInventoryViewSet, PartImageGalleryViewSet
+
 from . import views
+
+# Create router for ViewSets
+router = DefaultRouter()
+router.register(r"parts", PartInventoryViewSet, basename="parts")
+router.register(r"part-galleries", PartImageGalleryViewSet, basename="part-galleries")
 
 app_name = "authentication"
 
 urlpatterns = [
-    # Health check
+    # ============= HEALTH CHECK =============
     path("health/", views.health_check, name="health_check"),
     
-    # Parts Inquiry endpoints
+    # ============= PARTS INQUIRY ENDPOINTS =============
     path("parts-inquiry/", views.submit_parts_inquiry, name="submit_parts_inquiry"),
+    
+    # ============= MANUFACTURER ENDPOINTS =============
     path("manufacturers/", views.get_manufacturers, name="get_manufacturers"),
-    path("manufacturers/<int:manufacturer_id>/models/", views.get_models_by_manufacturer, name="get_models_by_manufacturer"),
+    path(
+        "manufacturers/<int:manufacturer_id>/models/",
+        views.get_models_by_manufacturer,
+        name="get_models_by_manufacturer",
+    ),
+    
+    # ============= VEHICLE MODEL ENDPOINTS =============
     path("models/", views.get_all_models, name="get_all_models"),
+    
+    # ============= PART CATEGORY ENDPOINTS =============
     path("part-categories/", views.get_part_categories, name="get_part_categories"),
     
-    # Contact form endpoints
+    # ============= CONTACT FORM ENDPOINTS =============
     path("contact/", views.submit_contact_form, name="submit_contact"),
+    
+    # ============= VIEWSET ROUTES (Parts Inventory & Part Galleries) =============
+    # This includes:
+    # - /api/parts/ - List all parts
+    # - /api/parts/{id}/ - Get specific part
+    # - /api/parts/featured/ - Featured parts
+    # - /api/parts/in_stock/ - In-stock parts
+    # - /api/parts/by_vehicle/ - Parts by vehicle
+    # - /api/part-galleries/ - List all galleries
+    # - /api/part-galleries/{id}/ - Get specific gallery
+    # - /api/part-galleries/featured/ - Featured galleries
+    # - /api/part-galleries/by_vehicle/ - Galleries by vehicle
+    # - /api/part-galleries/by_part_category/ - Galleries by part category
+    path("", include(router.urls)),
 ]
-
-
-
-
