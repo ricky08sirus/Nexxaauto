@@ -1,3 +1,4 @@
+
 <!-- authentication/templates/admin/send_inquiry_email.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -56,8 +57,8 @@
 <body>
     <div class="header"><h2>Django Administration</h2></div>
     <div class="breadcrumbs">
-        <a href="/admin/">Home</a> &rsaquo; 
-        <a href="/admin/authentication/partsinquiry/">Parts Inquiries</a> &rsaquo; 
+        <a href="/admin/">Home</a> &rsaquo;
+        <a href="/admin/authentication/partsinquiry/">Parts Inquiries</a> &rsaquo;
         <a href="/admin/authentication/partsinquiry/{{ inquiry.id }}/change/">{{ inquiry.name }}</a> &rsaquo; Send Email
     </div>
     <div class="container">
@@ -71,8 +72,8 @@
                     <p><strong>Phone:</strong> {{ inquiry.phone|default:"Not provided" }}</p>
                 </div>
                 <div>
-                    <p><strong>Vehicle:</strong> {{ inquiry.year }} {{ inquiry.manufacturer.name }} {{ inquiry.model.name }}</p>
-                    <p><strong>Part Category:</strong> {{ inquiry.part_category.name }}</p>
+                    <p><strong>Vehicle:</strong> {{ inquiry.year }} {{ inquiry.manufacturer }} {{ inquiry.model }}</p>
+                    <p><strong>Part Category:</strong> {{ inquiry.part_category }}</p>
                     <p><strong>Inquiry Date:</strong> {{ inquiry.created_at|date:"F d, Y" }}</p>
                 </div>
             </div>
@@ -102,25 +103,12 @@
         </form>
     </div>
     <script>
-<<<<<<< Updated upstream
         let partCount = 0, manufacturers = [], models = [], categories = [], partGalleries = [];
         const API_BASE = 'https://nexxaauto.com/api';
-=======
-        let partCount = 0;
-        let manufacturers = [];
-        let models = [];
-        let categories = [];
-        let partGalleries = [];
-
-        // API Base URL
-        const API_BASE = 'https://nexxaauto.com/api';
-
-        // Pre-load data from inquiry
->>>>>>> Stashed changes
         const inquiryYear = {{ inquiry.year }};
-        const inquiryManufacturer = "{{ inquiry.manufacturer.name }}";
-        const inquiryModel = "{{ inquiry.model.name }}";
-        const inquiryCategory = "{{ inquiry.part_category.name }}";
+        const inquiryManufacturer = "{{ inquiry.manufacturer }}";
+        const inquiryModel = "{{ inquiry.model }}";
+        const inquiryCategory = "{{ inquiry.part_category }}";
 
         async function loadReferenceData() {
             try {
@@ -134,7 +122,7 @@
                 models = (await modelsRes.json()).data || [];
                 categories = (await catRes.json()).data || [];
                 partGalleries = (await galRes.json()).results || [];
-                console.log('✅ Loaded reference data');
+                console.log('✅ Loaded reference data:', { manufacturers: manufacturers.length, models: models.length, categories: categories.length, galleries: partGalleries.length });
             } catch (error) {
                 console.error('❌ Failed to load reference data:', error);
                 alert('Warning: Could not load parts database. Manual entry will be required.');
@@ -244,6 +232,7 @@
             btn.disabled = true;
             if (!y || !mfg || !mod || !cat) { partSel.innerHTML = '<option value="">Fill year/make/model/category first...</option>'; return; }
             const matches = partGalleries.filter(p => p.year == y && p.manufacturer_name === mfg && p.model_name === mod && p.part_category_name === cat);
+            console.log(`🔍 Filtering parts for: ${y} ${mfg} ${mod} ${cat} - Found ${matches.length} matches`);
             if (matches.length === 0) { partSel.innerHTML = '<option value="">No parts found in inventory</option>'; return; }
             matches.forEach(p => { const o = document.createElement('option'); o.value = p.id; o.textContent = p.part_name; o.dataset.partData = JSON.stringify(p); partSel.appendChild(o); });
             btn.disabled = false;
